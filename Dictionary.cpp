@@ -15,12 +15,11 @@ Dictionary* Dictionary::getInstance() {
 	return instance; 
 }
 
-
 void Dictionary::buildDict() {
 	collectWords(vocabDict, "./dict/dict.txt");  // Vocabulary 
 	// collectWords(vocabDict, "./dict/cs_abbr.txt");  // CS abbreviations 
-	collectWords(preSufDict, "./dict/prefixes.txt");  // Commonly used prefix 
-	collectWords(preSufDict, "./dict/suffixes.txt");  // Commonly used suffix 
+	// collectWords(preSufDict, "./dict/prefixes.txt");  // Commonly used prefix
+	// collectWords(preSufDict, "./dict/suffixes.txt");  // Commonly used suffix
 }
 
 void Dictionary::collectWords(set<string> &s, string filePath) {

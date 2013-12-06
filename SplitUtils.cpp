@@ -53,7 +53,7 @@ string SplitUtils::camelCaseSplit(string word, const set<string> &wordList) {
 /**
  * Dynamic programming approach to split same case identifiers.
  */
-vector<string> SplitUtils::sameCaseSplitDP(string word, const set<string> &wordList) {
+vector<string> SplitUtils::sameCaseSplitDP(string word, const set<string> &wordList, int version) {
 	vector<string> result;
 	if (word.size() <= 1) {
 		result.push_back(word);
@@ -67,12 +67,23 @@ vector<string> SplitUtils::sameCaseSplitDP(string word, const set<string> &wordL
 		return result;
 	}
 
-	// Maximize the longest word that exist in the dictionary
-	// result = maxLongestWord(word, wordList);
-
-	// result = maxNumOfWordsInDict(word, wordList);
-
-	result = minNumOfWordsNotInDict(word, wordList);
+	// Choose which version of dp splitting algorithm to use
+	// 1: maximize longest word
+	// 2: maximize number of words in dictionary
+	// 3: minimize number of words not in dictionary
+	switch(version) {
+	case 1:
+		result = maxLongestWord(word, wordList);
+		break;
+	case 2:
+		result = maxNumOfWordsInDict(word, wordList);
+		break;
+	case 3:
+		result = minNumOfWordsNotInDict(word, wordList);
+		break;
+	default:
+		result = maxLongestWord(word, wordList);
+	}
 
 	for (int i = 0; i < result.size(); i++) {
 		cout << result[i] << endl;
@@ -134,8 +145,6 @@ vector<string> SplitUtils::maxLongestWord(string word, const set<string> &wordLi
 			}
 		}
 	}
-	printMatrix(t);
-	printMatrix(d);
 
 	// Reconstruct the word
 	vector<string> result;
@@ -215,9 +224,6 @@ vector<string> SplitUtils::maxNumOfWordsInDict(string word, const set<string> &w
 			}
 		}
 	}
-
-	printMatrix(t);
-	printMatrix(d);
 
 	// Reconstruct the word
 	vector<string> result;
@@ -303,9 +309,6 @@ vector<string> SplitUtils::minNumOfWordsNotInDict(string word, const set<string>
 			}
 		}
 	}
-
-	printMatrix(t);
-	printMatrix(d);
 
 	// Reconstruct the word
 	vector<string> result;

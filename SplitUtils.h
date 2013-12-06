@@ -23,11 +23,10 @@ public:
 	static string camelCaseSplit(string word, const set<string> &wordList); 
 	
 	// Split same case identifiers (after camel case split)
-	static vector<string> sameCaseSplitDP(string word, const set<string> &wordList);
+	static vector<string> sameCaseSplitDP(string word, const set<string> &wordList, int version);
 
 private: 
 	static vector<string> maxLongestWord(string word, const set<string> &wordList);
-	static vector<string> maxShortedWord(string word, const set<string> &wordList);
 	static vector<string> maxNumOfWordsInDict(string word, const set<string> &wordList);
 	static vector<string> minNumOfWordsNotInDict(string word, const set<string> &wordList);
 	

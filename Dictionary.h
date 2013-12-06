@@ -10,6 +10,7 @@ using namespace std;
 /**
  * Class that creates the dictionary used for parsing. 
  * Dongpu
+ * 12/5/2013
  */ 
 class Dictionary {
 private: 

@@ -10,5 +10,5 @@ SplitUtils.o : SplitUtils.h
 	g++ -c SplitUtils.cpp -o SplitUtils.o
 	
 clean: 
-	rm ./*.o
-	rm ./splitter
+	rm -rf ./*.o
+	rm -rf ./splitter
