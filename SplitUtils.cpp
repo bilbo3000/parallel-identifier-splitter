@@ -55,6 +55,7 @@ string SplitUtils::camelCaseSplit(string word, const set<string> &wordList) {
  */
 vector<string> SplitUtils::sameCaseSplitDP(string word, const set<string> &wordList, int version) {
 	vector<string> result;
+
 	if (word.size() <= 1) {
 		result.push_back(word);
 		return result;
@@ -83,10 +84,6 @@ vector<string> SplitUtils::sameCaseSplitDP(string word, const set<string> &wordL
 		break;
 	default:
 		result = maxLongestWord(word, wordList);
-	}
-
-	for (int i = 0; i < result.size(); i++) {
-		cout << result[i] << endl;
 	}
 
 	return result;
