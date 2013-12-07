@@ -16,7 +16,9 @@ vector<string> combineWords(vector<vector<string> > &words);
 int main(int argc, char* argv[]) {
 	// Validate arguments
 	assert(argc == 3);
-	string word = argv[1];
+	vector<string> inputs  = Utils::splitStringVector(argv[1], ",");
+	string word = inputs[0];
+	string oracle = inputs[1];
 	int version = atoi(argv[2]);
 
 	// Build dictionaries 
@@ -36,6 +38,9 @@ int main(int argc, char* argv[]) {
 	}
 	
 	vector<string> finalResults = combineWords(result);
+	transform(oracle.begin(), oracle.end(), oracle.begin(), ::tolower);
+	cout << oracle << endl;
+	cout << finalResults.size() << endl;
 
 	for (int i = 0; i < finalResults.size(); i++)
 		cout << finalResults[i] << endl;
