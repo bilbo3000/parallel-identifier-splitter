@@ -38,9 +38,10 @@ int main(int argc, char* argv[]) {
 	}
 	
 	vector<string> finalResults = combineWords(result);
+	cout << word << endl;  // Print out original word;
 	transform(oracle.begin(), oracle.end(), oracle.begin(), ::tolower);
-	cout << oracle << endl;
-	cout << finalResults.size() << endl;
+	cout << oracle << endl;  // Print out oracle
+	cout << finalResults.size() << endl;  // Print out number of splits
 
 	for (int i = 0; i < finalResults.size(); i++)
 		cout << finalResults[i] << endl;
