@@ -5,6 +5,7 @@
 #include "Utils.h"
 #include <cassert>
 #include <vector>
+#include <time.h> 
 
 using namespace std; 
 
@@ -14,6 +15,10 @@ vector<string> combineWords(vector<vector<string> > &words);
  * Main class that drives the program. 
  */ 
 int main(int argc, char* argv[]) {
+    time_t t1;
+    time(&t1); 
+    cout << "t1:" << t1 << endl;
+
 	// Validate arguments
 	assert(argc == 3);
 	vector<string> inputs  = Utils::splitStringVector(argv[1], ",");
@@ -45,6 +50,12 @@ int main(int argc, char* argv[]) {
 
 	for (int i = 0; i < finalResults.size(); i++)
 		cout << finalResults[i] << endl;
+
+    time_t t2;
+    time(&t2); 
+    cout << "t2:" << t2 << endl; 
+    //cout << "time:" << double(t2 - t1) / CLOCKS_PER_SEC << endl; 
+
 	return 0; 
 }
 

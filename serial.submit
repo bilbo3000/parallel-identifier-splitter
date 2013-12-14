@@ -1,0 +1,13 @@
+Universe = grid
+grid_resource = pbs
+batch_queue = guest
+Executable = splitter
+Log = job_serial.log
+Output = job_serial_$(Process).out
+Error = job_serial_$(Process).err
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files = dict.txt,WDM_identifiers3.csv
+
+Arguments = 1
+Queue 

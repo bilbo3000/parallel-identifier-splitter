@@ -1,0 +1,15 @@
+CSE 835 Final Project
+Dongpu Jin
+12/13/2013
+
+1. How to compile?
+    -- Put the source directory on the $WORK directory on Sandhills. 
+
+$ make clean
+$ make
+
+2. How to run? 
+    -- Suppose we are running the first version of the algorithm, we 
+        give 1 as the parameter. 
+
+$ python run.py 1
